@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <!--Script File For Bootstrap-->
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap-4/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Script File For Bootstrap-->
+
+    <!--Style CSS File For Bootstrap-->
+    <link rel="stylesheet" href="{% static 'bootstrap-4/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-4/css/bootstrap.min.css' %}">
+    <!--Style CSS File For Bootstrap-->
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'rms/style.css' %}">
+    <!--Custom CSS-->
+
+    <!--Fav-Icon Block-->
+    {% block fav_icon %} {# Empty Favicon #} {% endblock fav_icon %}
+    <!--Fav-Icon Block-->
+
+    <!-- Title Block-->
+
+    <title> {% block title %} {# Empty Title #} {% endblock title %} </title>
+
+    <!-- Title Block-->
+
+    <!-- Navbar Section -->
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'home' %}">Khai-Dai</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'food-item' %}">Food</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'member-list' %} ">Member</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'chef-list' %}">Chef</a>
+      </li>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'chef-list' %}">Add Food</a>
+      </li>
+        <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            {% endif %}
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link"> Hi, {{ user.get_full_name }} </a>
+        </li>
+        {% endif %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+        </div>
+    <!-- Navbar Section -->
+
+</head>
+<body>
+
+<div class="container">
+
+    {% block body %} {# empty #} {% endblock body%}
+
+    {% block logo %} {# Empty Logo #} {% endblock logo %}
+
+</div>
+</body>
+</html>
