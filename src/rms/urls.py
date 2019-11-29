@@ -5,12 +5,14 @@ from .views import (
         home,
         member,
         food_item,
-        chef_list,
+        chef_list
+)
 
+from .views.about import (
+    about
 )
 
 from .views .auths import (
-
         SignupView,
         LoginView,
 )
@@ -22,9 +24,9 @@ urlpatterns =[
     path('Member-List',member,name='member-list'),
     path('Food-Item',food_item,name='food-item'),
     path('Chef-List',chef_list,name= 'chef-list'),
+    path('about', about, name='about'),
 
     #Auths:
-
-    path('SignUp',SignupView,name="signup"),
-    path('LogIn',LoginView,name="login"),
+    path('SignUp', SignupView.as_view(), name="signup"),
+    path('LogIn', LoginView.as_view(), name="login"),
 ]
