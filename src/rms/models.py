@@ -11,3 +11,9 @@ class Chef(models.Model):
     nationality = models.CharField(max_length=255)
     bio = models.TextField(null=True)
 
+class Member(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=30)
+    about = models.TextField(null=True)
+

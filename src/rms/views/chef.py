@@ -8,3 +8,13 @@ def chef_list(req):
         'chef': Chef.objects.all()
     }
     return render(req, template, context)
+
+class ChefAddUpdate(View):
+    def get(self,request):
+        raise NotImplemented
+
+    def post(self,request):
+        raise NotImplemented
+
+def chef_delete(request):
+    raise NotImplemented
