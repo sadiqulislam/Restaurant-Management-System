@@ -1,8 +1,8 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 
 
@@ -20,7 +20,7 @@ class SignupView(View):
     def post(self, request):
         first_name = request.POST['first-name']
         last_name = request.POST['last-name']
-        email = request.POST['email']
+        email = request.POST['e-mail']
         password = request.POST['password']
         username = email
 
@@ -61,3 +61,20 @@ class LoginView(View):
                                  f"Successfully Logged In")
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+#Forget Password:
+
+def forget_password(req):
+
+    context = {
+
+        }
+    return render(req,'rms/forgetpassword.html', context)
+
+
+
+
+#Logout:
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
