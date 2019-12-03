@@ -10,10 +10,9 @@ from rms.forms import MemberForm
 
 @login_required(login_url='login')
 def member(req):
+    members = Member.objects.all()
     context = {
-
-        'members' : members
-
+        'members': members
     }
     return render(req, 'rms/member/member.html', context=context)
 
@@ -27,7 +26,6 @@ class NewMemberView(LoginRequiredMixin, View):
         about = request.session.get('about', '')
 
         member_form = MemberForm(initial= {
-            'name' = name,
-            'email' = email,
-
+            'name': name,
+            'email': email,
         })

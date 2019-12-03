@@ -68,7 +68,7 @@ def forget_password(req):
     context = {
 
         }
-    return render(req,'rms/forgetpassword.html', context)
+    return render(req,'rms/auths/forgetpassword.html', context)
 
 
 
